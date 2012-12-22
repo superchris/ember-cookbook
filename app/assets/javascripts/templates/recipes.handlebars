@@ -1,0 +1,7 @@
+<h1>Recipes</h1>
+
+<ul>
+{{#each recipe in content}}
+<li><a {{action showRecipe recipe href=true}}>{{recipe.title}}</a></li>
+{{/each}}
+</ul>
