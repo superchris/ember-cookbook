@@ -1,9 +1,9 @@
 EmberCookbook.EditRecipeController = Ember.ObjectController.extend
 
   beginEdit: ->
-    @transaction = @get("store").transaction()
-    # if @get("content.id")
-    @transaction.add(@get("content"))
+    # @transaction = @get("store").transaction()
+    # # if @get("content.id")
+    # @transaction.add(@get("content"))
     # else
       # @set "content", @transaction.createRecord EmberCookbook.Recipe, {}
 
@@ -16,8 +16,8 @@ EmberCookbook.EditRecipeController = Ember.ObjectController.extend
   ).observes("content.isSaving")
 
   saveRecipe: ->
-    # @get("content.store").commit()
-    @transaction.commit()
+    @get("content.store").commit()
+    # @transaction.commit()
     # @transaction = null
     #EmberCookbook.router.transitionTo 'recipes.recipe.index', @get("content")
 

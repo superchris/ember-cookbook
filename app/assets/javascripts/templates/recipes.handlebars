@@ -1,7 +1,11 @@
 <h1>Recipes</h1>
 
+<a {{action showNewRecipe}}>New Recipe</a>
 <ul>
 {{#each recipe in content}}
+{{view EmberCookbook.FooView}}
 <li><a {{action showRecipe recipe href=true}}>{{recipe.title}}</a></li>
 {{/each}}
 </ul>
+
+{{outlet}}
