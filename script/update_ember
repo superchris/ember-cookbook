@@ -1,0 +1,7 @@
+#!/bin/bash
+
+( cd ~/devel/ember/data/ && git pull && bundle install --binstubs && bundle exec rake clean dist )
+( cd ~/devel/ember/ember.js/ && git pull && bundle install --binstubs && bundle exec rake clean dist )
+
+cp ~/devel/ember/ember.js/dist/ember.js ./vendor/assets/javascripts/
+cp ~/devel/ember/data/dist/ember-data.js ./vendor/assets/javascripts/

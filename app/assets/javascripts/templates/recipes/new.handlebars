@@ -1,0 +1,9 @@
+<h3>New Recipe</h3>
+  {{#if errors}}
+    Something bad happened
+  {{/if}}
+
+<form>
+  {{partial recipeFields}}
+  <button {{action 'submit' model}}>Create!</button>
+</form>

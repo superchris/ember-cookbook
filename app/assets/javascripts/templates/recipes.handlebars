@@ -1,11 +1,16 @@
-<h1>Recipes</h1>
-
-<a {{action showNewRecipe}}>New Recipe</a>
-<ul>
-{{#each recipe in content}}
-{{view EmberCookbook.FooView}}
-<li><a {{action showRecipe recipe href=true}}>{{recipe.title}}</a></li>
-{{/each}}
-</ul>
-
-{{outlet}}
+<div class="row">
+  <div class="columns large-4 small-4">
+    <ul class="side-nav">
+      {{#each recipe in controller}}
+        <li>
+          {{#linkTo 'recipe' recipe}}{{recipe.title}}{{/linkTo}}
+        </li>
+      {{/each}}
+      <li class="divider"></li>
+      <li>{{#linkTo recipes/new}}New Recipe{{/linkTo}}</li>
+    </ul>
+  </div>
+  <div class="columns large-8 small-8">
+    {{outlet}}
+  </div>
+</div>

@@ -1,4 +1,3 @@
-EmberCookbook.Store = DS.Store.extend
-  revision: 10
-  adapter: DS.RESTAdapter.create()
-
+Cookbook.Store = DS.Store.extend
+  revision: 12
+  adapter: 'DS.RESTAdapter'

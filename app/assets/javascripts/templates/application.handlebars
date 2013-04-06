@@ -1,5 +1,15 @@
-<h1>Application</h1>
-
-<p>Your content is already here, but how?</p>
+<header class="top-bar">
+  <div class="top-bar-section contain-to-grid">
+    <ul class="title-area">
+      <li class="name">
+        <h1>{{#linkTo index}}Cookbook{{/linkTo}}</h1>
+      </li>
+    </ul>
+    <ul>
+      <li>{{#linkTo recipes}}Recipes{{/linkTo}}</li>
+      <li>{{#linkTo about}}About{{/linkTo}}</li>
+    </ul>
+  </div>
+</header>
 
 {{outlet}}
