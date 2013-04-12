@@ -4,5 +4,5 @@ Cookbook.Recipe = DS.Model.extend
   ingredients: DS.hasMany('Cookbook.Ingredient')
 
 Cookbook.Ingredient = DS.Model.extend
-  title: DS.attr('string')
+  name: DS.attr('string')
   recipes: DS.hasMany('Cookbook.Recipe')
