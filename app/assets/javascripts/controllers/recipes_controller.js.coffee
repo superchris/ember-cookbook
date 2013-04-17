@@ -9,3 +9,9 @@ Cookbook.RecipesEditController = Ember.ObjectController.extend
     @store.commit()
     @get("model").on "didUpdate", =>
       @transitionToRoute "recipe", @get("model")
+
+  delete: ->
+    @get("model").deleteRecord()
+    @store.commit()
+    @get("model").on "didDelete", =>
+      @transitionToRoute "recipe", @get("model")

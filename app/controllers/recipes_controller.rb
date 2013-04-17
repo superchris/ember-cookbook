@@ -21,4 +21,10 @@ class RecipesController < ApplicationController
     recipe.save!
     respond_with(recipe)
   end
+
+  def destroy
+    recipe.destroy
+    respond_with {}
+  end
+
 end
