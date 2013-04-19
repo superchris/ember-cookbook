@@ -14,4 +14,16 @@ Cookbook.RecipesEditController = Ember.ObjectController.extend
     @get("model").deleteRecord()
     @store.commit()
     @get("model").on "didDelete", =>
-      @transitionToRoute "recipe", @get("model")
+      @transitionToRoute "recipes.index"
+      @send("flash", "success", "Recipe Deleted")
+
+
+
+Cookbook.RecipeController = Ember.ObjectController.extend
+  addIngredient: ->
+    @get('model.ingredients').createRecord(name: "New Ingredient")
+
+Cookbook.ApplicationRoute = Ember.Route.extend
+  events:
+    flash: (level, message) ->
+      @controllerFor('application').set('flash', level: level, message: message)

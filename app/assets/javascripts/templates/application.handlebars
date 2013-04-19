@@ -12,4 +12,8 @@
   </div>
 </header>
 
+{{#if flash}}
+  <div {{bindAttr class="flash.level :alert-box"}}>{{flash.message}}</div>
+{{/if}}
+
 {{outlet}}

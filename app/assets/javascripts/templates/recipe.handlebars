@@ -4,10 +4,12 @@
 <ul class="panel">
 {{#each ingredient in ingredients}}
   <li>
-    {{ control "ingredient" ingredient }}
+    {{ render "ingredient" ingredient }}
   </li>
 {{/each}}
+  <li><button class="button" {{action addIngredient}}>Add</button></li>
 </ul>
+
 {{#linkTo 'recipes.edit' model class="button"}}Edit{{/linkTo}}
 
 {{outlet}}

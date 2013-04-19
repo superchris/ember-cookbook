@@ -4,8 +4,10 @@ Cookbook.IngredientView = Ember.View.extend
   click: (event) ->
     @set "controller.isEditing", true
 
-  submit: (event) ->
-    debugger
-    event.preventDefault()
-    @get("controller").saveIngredient()
 
+Cookbook.TextField = Ember.TextField.extend
+  didInsertElement: ->
+    @$().focus()
+
+  focusOut: ->
+    @get("controller").saveIngredient()
