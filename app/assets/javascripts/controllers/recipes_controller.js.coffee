@@ -18,6 +18,30 @@ Cookbook.RecipesEditController = Ember.ObjectController.extend
       @send("flash", "success", "Recipe Deleted")
 
 
+Cookbook.RecipesController = Ember.ArrayController.extend()
+
+Cookbook.RecipesIndexController = Ember.Table.TableController.extend
+  hasHeader: yes
+  hasFooter: no
+  numFixedColumns: 0
+  numRows: 500000
+  rowHeight: 30
+
+  columns: Ember.computed ->
+    columns= []
+    @get("modelClass").eachComputedProperty (attrName, meta) ->
+      if meta.isAttribute
+        columns.push Ember.Table.ColumnDefinition.create
+          columnWidth: 100
+          headerCellName: attrName
+          contentPath: attrName
+
+    columns
+  .property("modelClass")
+
+  modelClass: Ember.computed ->
+    if @get("content.firstObject") then @get("content.firstObject").constructor else DS.Model
+  .property("content.firstObject")
 
 Cookbook.RecipeController = Ember.ObjectController.extend
   addIngredient: ->
