@@ -1,6 +1,6 @@
 EmberCookbook::Application.routes.draw do
   resources :recipes
-
+  resources :ingredients
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

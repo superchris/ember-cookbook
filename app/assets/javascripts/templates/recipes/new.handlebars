@@ -1,9 +1,10 @@
 <h3>New Recipe</h3>
-  {{#if errors}}
-    Something bad happened
-  {{/if}}
+  {{#unless isValid}}
+    <div class="alert-box alert">There are some errors. You should totes pay attention to them!</div>
+  {{/unless}}
 
-<form>
-  {{partial recipeFields}}
-  <button {{action 'submit' model}}>Create!</button>
-</form>
+{{#formFor model wrapper="zurb-foundation"}}
+  {{ef_input title}}
+  {{ef_input description}}
+  {{submit "Create!" class="button"}}
+{{/formFor}}

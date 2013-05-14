@@ -8,3 +8,7 @@
 #= require_tree ./templates
 
 window.Cookbook = Ember.Application.create()
+
+Ember.EasyForm.Config.registerWrapper "zurb-foundation"
+  fieldErrorClass: "error"
+  errorClass: "error"
