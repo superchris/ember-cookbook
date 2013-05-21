@@ -11,4 +11,3 @@ Cookbook.IngredientController = Ember.ObjectController.extend
     @get("isNew") || @get("isEditing")
   ).property('isNew', 'isEditing')
 
-Cookbook.register('controller:ingredient', Cookbook.IngredientController, {singleton: false });
