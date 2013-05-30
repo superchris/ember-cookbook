@@ -56,13 +56,8 @@ Magic.EditableTableController = Ember.Table.TableController.extend Ember.Evented
   .property("content")
 
   add: ->
-    modelClass = @get("content.type")
-    # this groady hack is because calling createRecord() does not make the model
-    # appear in the list
-    defaultValues = {}
-    for attr, meta of modelClass.metaData()
-      defaultValues[attr] = meta.options.defaultValue
-    model = modelClass.createRecord defaultValues
+    model = @get("content.type").createRecord()
+    @get("content").addReference(model.get("_reference"))
     Ember.run.schedule "afterRender", => @trigger("edit", model)
 
   finishedEditing: ->
