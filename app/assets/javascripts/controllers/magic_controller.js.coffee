@@ -45,14 +45,21 @@ Magic.EditableTableController = Ember.Table.TableController.extend Ember.Evented
   columns: Ember.computed ->
     columns= []
     return unless @get("content")
-    for attrName, meta of @get("content.type").metaData()
+    for attrName, meta of @get("contentType").metaData()
       do (attrName) ->
         columns.push Ember.Table.ColumnDefinition.create
-          headerCellName: attrName
+          headerCellName: attrName.capitalize()
           contentPath: attrName
           tableCellViewClass: 'Magic.EditableTableCell'
           setCellContent: (row, value) -> row.set(attrName, value)
     columns
+  .property("content")
+
+  contentType: Ember.computed ->
+    content = @get("content")
+    while Ember.ArrayProxy.detectInstance(content) and !DS.RecordArray.detectInstance(content)
+      content = content.get "content"
+    return content.get("type")
   .property("content")
 
   add: ->

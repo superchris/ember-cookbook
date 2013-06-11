@@ -20,7 +20,7 @@ Cookbook.RecipesEditController = Ember.ObjectController.extend
 
 Cookbook.RecipesController = Ember.ArrayController.extend()
 
-Cookbook.RecipesIndexController = Magic.EditableTableController.extend()
+#Cookbook.RecipesIndexController = Magic.EditableTableController.extend()
 
 Cookbook.RecipeController = Ember.ObjectController.extend
   addIngredient: ->
